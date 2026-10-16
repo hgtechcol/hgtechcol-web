@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HGTECHCOL | Consultoría TI y Soporte de Infraestructura para PyMEs</title>
+  <meta name="description" content="Servicios especializados de administración de servidores, soporte remoto, redes corporativas y Microsoft 365 para PyMEs." />
+
+  <!-- Tipografía Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #070d18;
+      --bg-surface: #0e1726;
+      --bg-surface-elevated: #142034;
+      --primary-cyan: #00e5ff;
+      --accent-green: #00ff9d;
+      --primary-blue: #0284c7;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-highlight: rgba(0, 229, 255, 0.35);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 13, 24, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: #070d18;
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.35);
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .brand-name span {
+      color: var(--primary-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-cyan);
+    }
+
+    .btn-ticket-nav {
+      background: transparent;
+      border: 1px solid var(--primary-cyan);
+      color: var(--primary-cyan) !important;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 600 !important;
+      transition: all 0.2s;
+    }
+
+    .btn-ticket-nav:hover {
+      background: rgba(0, 229, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 80px;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      border-radius: 30px;
+      color: var(--primary-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -1px;
+      max-width: 860px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(90deg, #ffffff, var(--primary-cyan) 60%, var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-solid {
+      background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+      color: #070d18;
+      font-weight: 700;
+    }
+
+    .btn-solid:hover {
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-muted);
+      background: var(--bg-surface-elevated);
+    }
+
+    /* Métricas / Resumen */
+    .hero-stats {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .stat-item h4 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .stat-item p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    /* Secciones */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      margin-bottom: 50px;
+    }
+
+    .section-num {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--primary-cyan);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* Grid de Servicios */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+    }
+
+    .service-badge-num {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .service-card-footer {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--primary-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Proceso */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .flow-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 26px;
+    }
+
+    .flow-index {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-cyan);
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    .flow-box h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .flow-box p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Mesa de Tickets */
+    .ticket-wrapper {
+      background: linear-gradient(180deg, var(--bg-surface) 0%, #080f1a 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      max-width: 720px;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: #060a12;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #fff;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-cyan);
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Resultado Ticket */
+    .ticket-feedback {
+      display: none;
+      margin-top: 24px;
+      background: rgba(0, 255, 157, 0.06);
+      border: 1px solid rgba(0, 255, 157, 0.35);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .ticket-id-tag {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      letter-spacing: 1px;
+      margin: 8px 0;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .ticket-wrapper { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="brand-logo">
+          <div class="brand-icon">HG</div>
+          <div class="brand-name">HGTECHCOL<span>.</span></div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#metodologia">Metodología</a></li>
+          <li><a href="#ticket" class="btn-ticket-nav">Radicar Ticket</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">Infraestructura & Soporte Técnico para PyMEs</div>
+      <h1>Continuidad operativa y <span class="gradient-text">criterio tecnológico</span> para tu empresa.</h1>
+      <p>Administración proactiva de servidores, redes, entornos Microsoft 365 y soporte remoto especializado. La estabilidad que tu negocio necesita para operar sin interrupciones.</p>
+      
+      <div class="hero-actions">
+        <a href="#ticket" class="btn btn-solid">Radicar Incidencia</a>
+        <a href="https://wa.me/573000000000?text=Hola%20HGTECHCOL,%20solicito%20informaci%C3%B3n%20sobre%20servicios%20TI" target="_blank" class="btn btn-outline" id="btn-direct-wsp">Contacto WhatsApp ↗</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h4>Soporte Remoto</h4>
+          <p>Conexión segura vía AnyDesk / RustDesk</p>
+        </div>
+        <div class="stat-item">
+          <h4>Respaldo & Cloud</h4>
+          <p>Gestión M365, SharePoint y OneDrive</p>
+        </div>
+        <div class="stat-item">
+          <h4>Redes & Servidores</h4>
+          <p>Windows Server, Linux y micro-redes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Especializados -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">01. Soluciones TI</span>
+        <h2 class="section-title">Servicios diseñados para la estabilidad corporativa</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div>
+            <div class="service-badge-num">[01]</div>
+            <h3>Mesa de Ayuda y Soporte Remoto</h3>
+            <p>Diagnóstico y atención ágil de incidencias en estaciones de trabajo, impresoras, sistemas operativos y aplicaciones corporativas.</p>
+          </div>
+          <div class="service-card-footer">
+            <span>Atención Remota</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div>
+            <div class="service-badge-num">[02]</div>
+            <h3>Administración de Servidores</h3>
+            <p>Implementación, afinamiento y mantenimiento de entornos Windows Server y Linux. Configuración de carpetas compartidas y backups programados.</p>
+          </div>
+          <div class="service-card-footer">
+            <span>Sistemas Críticos</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div>
+            <div class="service-badge-num">[03]</div>
+            <h3>Entornos Microsoft 365</h3>
+            <p>Administración de inquilinos corporativos: aprovisionamiento de cuentas, políticas de Exchange Online, SharePoint y OneDrive.</p>
+          </div>
+          <div class="service-card-footer">
+            <span>Productividad Cloud</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div>
+            <div class="service-badge-num">[04]</div>
+            <h3>Redes, Firewall y VPNs</h3>
+            <p>Configuración de routers empresariales, segmentación de redes de trabajo y accesos VPN seguros para trabajo remoto o sedes satélite.</p>
+          </div>
+          <div class="service-card-footer">
+            <span>Conectividad Segura</span>
+            <span>↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología -->
+  <section id="metodologia">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">02. Metodología</span>
+        <h2 class="section-title">Gestión técnica documentada y sin esperas</h2>
+      </div>
+
+      <div class="flow-grid">
+        <div class="flow-box">
+          <div class="flow-index">01</div>
+          <h4>Recepción y Radicado</h4>
+          <p>El cliente registra el incidente en la mesa web y recibe su número de seguimiento único.</p>
+        </div>
+        <div class="flow-box">
+          <div class="flow-index">02</div>
+          <h4>Evaluación y Prioridad</h4>
+          <p>Clasificamos el impacto del requerimiento para una respuesta rápida según el acuerdo.</p>
+        </div>
+        <div class="flow-box">
+          <div class="flow-index">03</div>
+          <h4>Intervención Remota</h4>
+          <p>Conexión cifrada a la estación o servidor afectado para ejecutar el plan de remediación.</p>
+        </div>
+        <div class="flow-box">
+          <div class="flow-index">04</div>
+          <h4>Cierre y Registro</h4>
+          <p>Pruebas de verificación de continuidad con el usuario y cierre del caso radicado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Tickets -->
+  <section id="ticket">
+    <div class="container">
+      <div class="section-head" style="text-align: center;">
+        <span class="section-num">03. Mesa de Soporte</span>
+        <h2 class="section-title">Radicar Requerimiento Técnico</h2>
+        <p style="color: var(--text-muted); margin-top: 8px;">Sistema de turnos y atención para clientes nuevos o recurrentes de HGTECHCOL.</p>
+      </div>
+
+      <div class="ticket-wrapper">
+        <form id="tktForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fName">Nombre y Empresa *</label>
+              <input type="text" id="fName" class="form-control" placeholder="Ej: Diana Reyes - Logística ABC" required />
+            </div>
+            <div class="form-group">
+              <label for="fPhone">WhatsApp de Contacto *</label>
+              <input type="tel" id="fPhone" class="form-control" placeholder="Ej: 300 123 4567" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fCategory">Categoría del Requerimiento *</label>
+              <select id="fCategory" class="form-control" required>
+                <option value="Soporte Remoto / PC">Soporte a Estación / PC / Software</option>
+                <option value="Servidores / Respaldo">Servidor / Carpetas de Red / Respaldo</option>
+                <option value="Microsoft 365 / Correo">Microsoft 365 / Correo corporativo</option>
+                <option value="Redes / Conectividad / VPN">Redes / VPN / Caída de Enlace</option>
+                <option value="Nueva Consultoría">Nuevo Proyecto / Asesoría TI</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fUrgency">Prioridad de Atención *</label>
+              <select id="fUrgency" class="form-control" required>
+                <option value="Media">Media — Actividad regular en curso</option>
+                <option value="Alta">Alta — Afecta la operación de un área</option>
+                <option value="Crítica">Crítica — Servidor o servicio detenido</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fDetail">Descripción de la Falla o Solicitud *</label>
+            <textarea id="fDetail" class="form-control" placeholder="Indica detalles puntuales, mensajes de error o aplicativo afectado..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-solid" style="width: 100%; justify-content: center; font-size: 1rem;">
+            Radicar Caso y Notificar a Soporte ↗
+          </button>
+        </form>
+
+        <div id="tktSuccess" class="ticket-feedback">
+          <h4 style="color: #fff; font-family: var(--font-display);">¡Solicitud Registrada con Éxito!</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px;">Tu número de radicado oficial es:</p>
+          <div id="tktNumber" class="ticket-id-tag">#TKT-0000</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px;">Hemos preparado tu mensaje directo para priorizar el turno en WhatsApp.</p>
+          <a id="btnGoWsp" href="#" target="_blank" class="btn btn-solid" style="font-size: 0.9rem;">
+            Abrir WhatsApp y confirmar radicado ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 <strong>HGTECHCOL</strong> — Consultoría TI & Soporte de Infraestructura.</p>
+      <p style="margin-top: 6px; font-size: 0.8rem; color: #64748b;">Todos los derechos reservados. Operaciones y Mesa de Ayuda PyME.</p>
+    </div>
+  </footer>
+
+  <!-- Lógica JavaScript -->
+  <script>
+    // ===== CONFIGURACIÓN WHATSAPP =====
+    // Reemplaza por tu número sin símbolos ni espacios (ej: 573001234567)
+    const WSP_HGTECHCOL = "573193089433"; 
+
+    // Botón superior de contacto
+    const directLink = document.getElementById('btn-direct-wsp');
+    if (directLink) {
+      directLink.href = `https://wa.me/${WSP_HGTECHCOL}?text=${encodeURIComponent("Hola HGTECHCOL, me gustaría solicitar información técnica para mi empresa.")}`;
+    }
+
+    const tktForm = document.getElementById('tktForm');
+    const tktBox = document.getElementById('tktSuccess');
+    const tktDisplay = document.getElementById('tktNumber');
+    const btnGoWsp = document.getElementById('btnGoWsp');
+
+    tktForm.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+
+      // Generación de radicado secuencial-aleatorio
+      const radicadoNum = Math.floor(1000 + Math.random() * 9000);
+      const ticketId = `TKT-${radicadoNum}`;
+
+      const clientName = document.getElementById('fName').value.trim();
+      const clientPhone = document.getElementById('fPhone').value.trim();
+      const serviceCat = document.getElementById('fCategory').value;
+      const urgencyLvl = document.getElementById('fUrgency').value;
+      const description = document.getElementById('fDetail').value.trim();
+
+      // Formato para WhatsApp Business
+      const mensajeWsp = 
+`*SOLICITUD DE SOPORTE - HGTECHCOL*
+🔖 *Radicado:* #${ticketId}
+🏢 *Empresa / Solicitante:* ${clientName}
+📱 *Contacto:* ${clientPhone}
+⚙️ *Tipo:* ${serviceCat}
+🚨 *Prioridad:* ${urgencyLvl}
+📋 *Detalle:* ${description}`;
+
+      const urlWsp = `https://wa.me/${WSP_HGTECHCOL}?text=${encodeURIComponent(mensajeWsp)}`;
+
+      tktDisplay.textContent = `#${ticketId}`;
+      btnGoWsp.href = urlWsp;
+      tktBox.style.display = 'block';
+
+      // Redirige automáticamente a WhatsApp
+      setTimeout(() => {
+        window.open(urlWsp, '_blank');
+      }, 700);
+    });
+  </script>
+</body>
+</html>
